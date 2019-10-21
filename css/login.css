@@ -2,16 +2,33 @@
     margin: 0px;
     padding: 0px;
 }
+h1 {
+    color: white;
+}
 body {
-    background-color: cornflowerblue;
+    background-color: black;
 }
 form {
-    width: 300px;
+    width: 350px;
     height: auto;
     padding: 20px 30px;
-    background-color: orange;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 #000;
     margin: auto;
-
 }
+
+/* Set a style for all buttons */
+.btn {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
