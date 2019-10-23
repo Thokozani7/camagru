@@ -9,39 +9,38 @@ h1 {
 body {
     background-color: #f58529;
 }
-@media screen and (max-width: 1000px) {
-    form {
-        width: 550px;
-        height: auto;
-        padding: 50px 100px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px 0 #000;
-        margin: auto;
-        margin-top: 100px;
-        font-size: 50px;
-    }
-    .form-control {
-        font-size: 50px;
-        box-shadow: 0 0 10px 0 #000;
-    }
-    img.login{
-        height: 300px;
-        margin-left: 20%;
-      }
-    /* Set a style for all buttons */
-     .btn {
-        background-color: #f58529;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        font-size: 50px;
-      }
-      
-      .btn:hover {
-        opacity: 0.8;
-      }
+
+form {
+    width: 550px;
+    height: auto;
+    padding: 50px 100px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #000;
+    margin: auto;
+    margin-top: 100px;
+    font-size: 50px;
 }
+.form-control {
+    font-size: 50px;
+    box-shadow: 0 0 10px 0 #000;
+}
+img.login{
+    height: 300px;
+    margin-left: 20%;
+  }
+/* Set a style for all buttons */
+ .btn {
+    background-color: #f58529;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 50px;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }

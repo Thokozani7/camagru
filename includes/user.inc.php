@@ -1,6 +1,6 @@
 <?php
 
-class User extends dbh {
+class User extends Dbh {
     private $servername;
     private $username;
     private $password;
