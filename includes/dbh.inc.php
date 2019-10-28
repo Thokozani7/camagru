@@ -14,7 +14,6 @@
 //     private $password;
 //     private $dbname;
 //     private $charset;
-    
 //     public function connect() {
 //         $this->servername = "localhost";
 //         $this->username = "root";
