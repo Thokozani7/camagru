@@ -61,13 +61,12 @@ try {
    // $result = $dbh->get_result();
     $user_count= count($arr);
      //print_r($arr);
-     echo $user_count;
+    //  echo $user_count;
      
      if($user_count > 1)
      $errors["email"] = "E-mail is already in use.";
      
-     echo count($errors);
-
+    //  echo count($errors);
  
     if(count($errors) === 0)
     {
@@ -79,13 +78,24 @@ try {
         $sql = "INSERT INTO users (Username, email, varified, token, passwd) VALUES ('$username', '$email', '$varified', '$token', '$password');";
         $dbh->exec($sql);
 
-        // $to = $email;
-        // $subject = "E-mail varification";
-        // $message = "<a href='http://127.0.0.1:8081/camagru0/index.html?token=$token'>Register account </a>";
-        // $header = "From: phpbasics@yahoo.com \r\n";
+        $to = $email;
+        $subject = "E-mail varification";
+        $message = "<a href='http://127.0.0.1:8081/camagru0/index.html?token=$token'>Register account </a>";
+        $headers = "From: cotekiy@mailseo.net \r\n";
+        $headers .= "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        
+        // mail($to,$subject,$message,$headers);
+        // echo var_dump(mail($to, $subject, $message, $headers));
+        // echo $dbh->execute();
 
+        $link = "Please verify your E-mail";
+            header("Location: ../login.php");
         if($dbh->execute()) {
-
+            echo "hello";
+            $link = "Please verify your E-mail";
+            header("Location: ../login.php");
+            exit();
         } else {
             $errors['db_error'] = "Database error: failed to register";
         }

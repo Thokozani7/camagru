@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require "includes/register.php"; ?>
 <html>
     <head>
         <title>Camagru</title>
@@ -10,6 +11,14 @@
             <img class="login" src="img/sign-up.png" >
             <div class="form-group">
                     <h1  align="center">Sign-Up</h1>
+            
+            <?php if(count($errors) > 0): ?>
+                <div>
+                <?php foreach($errors as $value): ?>
+                    <li> <?php echo $value; ?></li>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
               <label>Name:</label>
               <input type="text" name="username" value="<?php echo $username; ?>" class="form-control"  placeholder="Your Name" required> 
             </div>
