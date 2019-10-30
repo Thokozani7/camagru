@@ -1,5 +1,5 @@
 <?php
-include_once 'dbh.inc.php';
+require_once 'dbh.inc.php';
 
 // CREATE DATABASE
 try {
@@ -25,7 +25,7 @@ try {
           email VARCHAR(100) NOT NULL,
           passwd VARCHAR(255) NOT NULL,
           token VARCHAR(50) NOT NULL,
-          varified VARCHAR(1) NOT NULL
+          varified INT(1) NOT NULL
         )";
         $dbh->exec($sql);
         echo "Table users created successfully<br>";

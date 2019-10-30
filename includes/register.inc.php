@@ -7,9 +7,9 @@ $errors = array();
 $username = "";
 $email = "";
 
-if (isset($_POST['submit']))
+if (isset($_POST['submit'] ))
 {
-     $username = $_POST["username"];
+    $username = $_POST["username"];
      $email = $_POST["email"];
      $password = $_POST["password"];
 
@@ -23,6 +23,9 @@ if (isset($_POST['submit']))
     $errors["email"] = "E-mail required";
     if (empty($password))
     $errors["password"] = "Password required";
+
+    $_SESSION["username"] = $username;
+    $_SESSION["email"] = $email;
     // echo $username."\n";
     // echo $email."\n";
     // echo $password."\n";
@@ -30,6 +33,7 @@ if (isset($_POST['submit']))
     // {
     //     echo $value."<br>";
     // }
+
 
 // try{
 // $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -72,7 +76,7 @@ try {
     {
         $token = bin2hex(random_bytes(50));
         $token = substr($token, 0, 20);
-        $varified = false;
+        $varified = 0;
 
         $password = SHA1($password);
         $sql = "INSERT INTO users (Username, email, varified, token, passwd) VALUES ('$username', '$email', '$varified', '$token', '$password');";
@@ -80,17 +84,21 @@ try {
 
         $to = $email;
         $subject = "E-mail varification";
-        $message = "<a href='http://127.0.0.1:8081/camagru0/index.html?token=$token'>Register account </a>";
+        $message = "<a href='http://127.0.0.1:8081/camagru0/varified.php?token=$token'>Register account </a>";
         $headers = "From: cotekiy@mailseo.net \r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         
-        // mail($to,$subject,$message,$headers);
+        mail($to,$subject,$message,$headers);
         // echo var_dump(mail($to, $subject, $message, $headers));
         // echo $dbh->execute();
 
-        $link = "Please verify your E-mail";
-            header("Location: ../login.php");
+        $link = "A varification link has been sent to your email account. Please click on the link that has just been sent
+        to your email account that you have entered to varify your email.";
+
+        //    header("Location: ../login.php");
+        echo $link;
+        echo '<br><a href="../login.php"><input type="submit" name="submit" value="submit" class="btn btn-primary"></a>';
         if($dbh->execute()) {
             echo "hello";
             $link = "Please verify your E-mail";
@@ -106,11 +114,19 @@ catch (PDOException $e) {
 }
 
 
- foreach ($errors as $value)
-    {
-        echo $value."<br>";
-    }
-    unset($errors);
-
+$_SESSION["errors"] = $errors;
+    header("Location: ../register.php");
 }
+
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <p> 
+    <!-- <a href="../login.php">log-in</a> -->
+    </p>
+    </body>
+</html>
