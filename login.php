@@ -1,9 +1,5 @@
 <?php 
 
-
-if (isset($_POST['submit-sup']))
-header ("Location: register.php");
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,22 +13,30 @@ header ("Location: register.php");
             <img class="login" src="img/login.png" >
             <div class="form-group">
             <h1  align="center">Sign-in</h1>
-            <?php 
-            ?>
+            
+            <div style="background-color: red;">
+                <?php if(isset($_GET['error_code'])): ?>
+                        <li> <?php echo $_GET['error_code']; ?></li>
+                <?php endif; ?>
+            </div>
               <label>Email address:</label>
-              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" name="email" value="" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
             </div>
             <br>
             <div class="form-group">
                 <label >Password:</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" value="" class="form-control" placeholder="Password" required>
             </div>
             <br>
-            <input type="submit" name="submit" value="login" class="btn btn-primary">
-           
+            <input type="submit" name="log_submit" value="login" class="btn btn-primary">
+
+            </form>
+        <form>
             <input formaction="register.php" type="submit" name="submit-sup" value="sign-up" class="btn btn-primary">
-          
-          </form>
+            <a href="forgot.php" >Forgot password</a>
+            
+        </form>
+        
           
     </body>
 </html>

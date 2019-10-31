@@ -84,8 +84,8 @@ try {
 
         $to = $email;
         $subject = "E-mail varification";
-        $message = "<a href='http://127.0.0.1:8081/camagru0/varified.php?token=$token'>Register account </a>";
-        $headers = "From: cotekiy@mailseo.net \r\n";
+        $message = "<a href='http://127.0.0.1:8081/camagru0/varified.php?token=$token'>Varify account </a>";
+        $headers = "From: camagru_CEO@mailseo.net \r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         
