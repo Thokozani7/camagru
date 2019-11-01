@@ -10,7 +10,7 @@ $_SESSION["key"] = $_GET['key'];
     </head>
     <body>
         <hr>
-        <form action="includes/update_detail.inc.php" method="POST">
+        <form action="includes/reset_password.inc.php" method="POST">
             <img class="login" src="img/sign-up.png" >
             <div class="form-group">
                     <h1  align="center">Reset password</h1>
