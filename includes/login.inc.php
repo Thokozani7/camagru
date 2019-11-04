@@ -1,5 +1,6 @@
 <?php
 include_once "dbh.inc.php";
+session_start();
 
 if(isset($_POST['log_submit']))
 {
@@ -12,12 +13,18 @@ if(isset($_POST['log_submit']))
         $results = $dbh->query($sql);
         $results->setFetchMode(PDO::FETCH_ASSOC);
         $arr = $results->fetch();
+
         echo $email."<br>";
+        echo $_SESSION['email'] = $email;
+        echo $_SESSION['username'] = $arr['Username'];
+        echo "<br>".$_SESSION['username']."<br>";
+        echo "<br>";
         print_r($arr);
+        
         if ($arr['passwd'] == SHA1($_POST['password']) && !empty($arr) && $arr['varified'] == 1)
         {
             echo "You are now logged in.";
-            header ("Location: ../index.html");
+            header ("Location: ../index.php");
         }
         else {
             header ("Location: ../login.php?error_code=Incorrect password or E-mail");

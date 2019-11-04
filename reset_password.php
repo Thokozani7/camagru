@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<?php require "includes/update_detail.inc.php"; 
+<?php require "includes/reset_password.inc.php"; 
 $_SESSION["key"] = $_GET['key'];
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>Camagru</title>

@@ -44,3 +44,7 @@ img.login{
   .btn:hover {
     opacity: 0.8;
   }
+
+  .logout_b {
+      flex: right;
+  }

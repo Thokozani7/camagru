@@ -11,18 +11,25 @@
         <hr>
         <form action="includes/login.inc.php" method="POST">
             <img class="login" src="img/login.png" >
+
             <div class="form-group">
+
             <h1  align="center">Sign-in</h1>
-            
+
             <div style="background-color: red;">
                 <?php if(isset($_GET['error_code'])): ?>
                         <li> <?php echo $_GET['error_code']; ?></li>
                 <?php endif; ?>
             </div>
+
               <label>Email address:</label>
+
               <input type="email" name="email" value="" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
+
             </div>
+
             <br>
+
             <div class="form-group">
                 <label >Password:</label>
                 <input type="password" name="password" value="" class="form-control" placeholder="Password" required>

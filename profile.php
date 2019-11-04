@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 ?>
 
@@ -24,12 +25,12 @@
 </label>
 <hr>
 <br>
- <div> Username: <br> Thokozani <input type="submit" name="edit" value="edit"></div>
+ <div> Username: <br> <?php echo $_SESSION['username'] ?> <input type="submit" name="username" value="edit"></div>
  <br>
- <div> Email: <br> thokozani@gmail.com <input type="submit" name="edit" value="edit"></div>
+ <div> Email: <br> <?php echo $_SESSION['email'] ?> <input type="submit" name="email" value="edit"></div>
  
  <br>
- <div> Reset password: <br> Thokozani <input type="submit" name="edit" value="edit"></div>
+ <div> Reset password: <br> ********** <input type="submit" name="pass" value="edit"></div>
 </div></form>
 
 </body></html>
