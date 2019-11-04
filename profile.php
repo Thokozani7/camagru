@@ -15,13 +15,13 @@ session_start();
 <body>
     <form action="includes/profile.inc.php" method="POST">
     <div>
-    <div style="background-color: blue; border-radius: 50%; width: 200px; height: 200px;">
+    <!-- <div style="background-color: blue; border-radius: 50%; width: 200px; height: 200px;"> -->
         <!-- <p>hello</p> -->
         </div>
-<input type="file" name="fileToUpload" value=""> <input type="submit" name="upload" value="upload">
+<!-- <input type="file" name="fileToUpload" value=""> <input type="submit" name="upload" value="upload"> -->
 <br>
-        <label class="profileImage">
-  Profile Image
+        <label class="userprofile">
+  User Profile
 </label>
 <hr>
 <br>
