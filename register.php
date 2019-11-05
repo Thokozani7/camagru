@@ -11,7 +11,7 @@
         <title>Camagru</title>
         <link rel="stylesheet" href="css/login.css">
     </head>
-    <body>
+    <body class="back_or">
         <hr>
         <form action="includes/register.inc.php" method="POST">
             <img class="login" src="img/sign-up.png" >

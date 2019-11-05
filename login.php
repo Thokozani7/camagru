@@ -7,7 +7,7 @@
         <title>Camagru</title>
         <link rel="stylesheet" href="css/login.css">
     </head>
-    <body>
+    <body class="back_or">
         <hr>
         <form action="includes/login.inc.php" method="POST">
             <img class="login" src="img/login.png" >

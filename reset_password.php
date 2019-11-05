@@ -8,7 +8,7 @@ $_SESSION["key"] = $_GET['key'];
         <title>Camagru</title>
         <link rel="stylesheet" href="css/login.css">
     </head>
-    <body>
+    <body class="back_or">
         <hr>
         <form action="includes/reset_password.inc.php" method="POST">
             <img class="login" src="img/sign-up.png" >

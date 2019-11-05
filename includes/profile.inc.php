@@ -1,8 +1,8 @@
 <?php
 
 include_once "dbh.inc.php";
-$email = $_SESSION['email'];
 session_start();
+$email = $_SESSION['email'];
 
 if(isset($_POST['upload']))
 {

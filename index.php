@@ -11,18 +11,30 @@ session_start();
     <body>
 <!-- <h5>Login</h5> -->
 
+
+
+<div class="navbar navbar-expand-lg navbar-light bg-light">
 <?php
 if (!isset($_SESSION['username'])) { ?>
 
-<a href="login.php">Login</a> |
-<a href="register.php">Register</a> |
+<li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+      </li>
+<li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+      </li>
+<!-- <a href="login.php">Login</a> |
+<a href="register.php">Register</a> | -->
 
 <?php } else if (isset($_SESSION['username'])) {?>
 
 Welcome back
 <?php
-echo $_SESSION['username']; ?> | <a href="includes/logout.inc.php">Logout</a> |
+echo $_SESSION['username']; ?>
+<a href="gallery.php">Gallery</a> |
+<a href="my_uploads.php">My uploads</a> |
 <a href="profile.php">Profile</a> |
+<a href="includes/logout.inc.php">Logout</a> |
 <?php }?>
 
 </div>

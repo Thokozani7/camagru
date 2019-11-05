@@ -12,7 +12,8 @@ session_start();
     <title>Profile</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
+<body class="back_or">
+<a href="./index.php" >Home</a>
     <form action="includes/profile.inc.php" method="POST">
     <div>
     <!-- <div style="background-color: blue; border-radius: 50%; width: 200px; height: 200px;"> -->
@@ -30,7 +31,7 @@ session_start();
  <div> Email: <br> <?php echo $_SESSION['email'] ?> <input type="submit" name="email" value="edit"></div>
  
  <br>
- <div> Reset password: <br> ********** <input type="submit" name="pass" value="edit"></div>
+ <div> Update password: <br> ********** <input type="submit" name="pass" value="edit"></div>
 </div></form>
 
 </body></html>

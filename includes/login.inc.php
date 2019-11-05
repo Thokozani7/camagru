@@ -14,15 +14,18 @@ if(isset($_POST['log_submit']))
         $results->setFetchMode(PDO::FETCH_ASSOC);
         $arr = $results->fetch();
 
-        echo $email."<br>";
-        echo $_SESSION['email'] = $email;
-        echo $_SESSION['username'] = $arr['Username'];
-        echo "<br>".$_SESSION['username']."<br>";
-        echo "<br>";
+       
         print_r($arr);
         
         if ($arr['passwd'] == SHA1($_POST['password']) && !empty($arr) && $arr['varified'] == 1)
         {
+            // echo "<br>";
+            // echo $email."<br>";
+            echo $_SESSION['email'] = $email;
+            echo $_SESSION['username'] = $arr['Username'];
+            echo $_SESSION['token'] = $arr['token'];
+            // echo "<br>".$_SESSION['username']."<br>";
+            echo "<br>";
             echo "You are now logged in.";
             header ("Location: ../index.php");
         }
