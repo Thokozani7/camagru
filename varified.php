@@ -8,7 +8,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "UPDATE users SET varified=1 WHERE token='$token'";
     $dbh->exec($sql);
-    echo "Updated";
+    echo "Updated"; 
 } catch (PDOException $e) {
     echo "Couldn't Varify: ". $e->getMessage();
 }

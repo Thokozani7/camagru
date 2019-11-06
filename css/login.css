@@ -105,6 +105,29 @@ img.login{
 .alert-danger .alert-link {
 	color: #491217
 }
+
+.alert {
+	position: relative;
+	padding: .75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: .25rem
+}
+
+/* success alert */
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb
+}
+
+.alert-success hr {
+	border-top-color: #b1dfbb
+}
+
+.alert-success .alert-link {
+	color: #0b2e13
+}
 .jumbotron {
 	padding: 2rem 1rem;
 	margin-bottom: 2rem;
@@ -199,4 +222,10 @@ img.login{
     max-width: 41.666667%;
     border: solid black 1px;
     background-color: powderblue;
+}
+
+.posted_pic {
+	display: block;
+	width: 60%;
+	margin: 10px auto;
 }
