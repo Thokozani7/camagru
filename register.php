@@ -13,7 +13,7 @@
     </head>
     <body class="back_or">
         <hr>
-        <form action="includes/register.inc.php" method="POST">
+        <form class="tk_form" action="includes/register.inc.php" method="POST">
             <img class="login" src="img/sign-up.png" >
             <div class="form-group">
                     <h1  align="center">Sign-Up</h1>

@@ -4,6 +4,20 @@ session_start();
 $msg = "";
 $css_class = "";
 
+try {
+    $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $mail = $_SESSION['email'];
+    $sql = "SELECT * FROM images WHERE user='$mail'";
+    $result = $dbh->query($sql);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    $arr = $result->fetchAll();
+    // print_r($arr);
+    } catch (PDOException $e) {
+        echo "Not connected: ". $e->getMessage();
+    }
+
 if (isset($_POST['pic_upload']))
 {
     echo "<pre>",print_r($_FILES['pic_post']['name']),"</pre>";

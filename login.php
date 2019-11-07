@@ -9,7 +9,7 @@
     </head>
     <body class="back_or">
         <hr>
-        <form action="includes/login.inc.php" method="POST">
+        <form class="tk_form" action="includes/login.inc.php" method="POST">
             <img class="login" src="img/login.png" >
 
             <div class="form-group">
@@ -38,7 +38,7 @@
             <input type="submit" name="log_submit" value="login" class="btn btn-primary">
 
             </form>
-        <form>
+        <form class="tk_form">
             <input formaction="register.php" type="submit" name="submit-sup" value="sign-up" class="btn btn-primary">
             <a href="forgot.php" >Forgot password</a>
             

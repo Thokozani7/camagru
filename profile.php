@@ -14,7 +14,7 @@ session_start();
 </head>
 <body class="back_or">
 <a href="./index.php" >Home</a>
-    <form action="includes/profile.inc.php" method="POST">
+    <form class="tk_form" action="includes/profile.inc.php" method="POST">
     <div>
     <!-- <div style="background-color: blue; border-radius: 50%; width: 200px; height: 200px;"> -->
         <!-- <p>hello</p> -->
