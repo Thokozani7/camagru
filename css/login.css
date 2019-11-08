@@ -219,7 +219,7 @@ img.login{
 .col-md-5 {
     -ms-flex: 0 0 41.666667%;
     flex: 0 0 41.666667%;
-    max-width: 41.666667%;
+	max-width: 50%;
     border: solid black 1px;
     background-color: powderblue;
 }
@@ -228,4 +228,29 @@ img.login{
 	display: block;
 	width: 60%;
 	margin: 10px auto;
+}
+
+.nav-item{
+	-ms-flex:1 1 auto;
+	flex:1 1 auto;
+	text-align:center;
+}
+.nav-justified .nav-item{
+	-ms-flex-preferred-size:0;
+	flex-basis:0;
+	-ms-flex-positive:1;
+	flex-grow:1;
+	text-align:center;
+}
+
+.displayComments {
+    width: 50%;
+    border: 1px solid #9E9E9E;
+    border-radius: 11px;
+    background-color: palegreen;
+}
+
+.per_comm {
+    margin-left: 10px;
+    margin-top: 10px;
 }

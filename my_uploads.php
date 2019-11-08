@@ -1,13 +1,10 @@
 <?php
 include "includes/my_uploads.inc.php";
-
 include "includes/dbh.inc.php";
 session_start();
-
 // try {
 // $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // $mail = $_SESSION['email'];
 // $sql = "SELECT * FROM images WHERE user='$mail'";
 // $result = $dbh->query($sql);
@@ -17,7 +14,6 @@ session_start();
 // } catch (PDOException $e) {
 //     echo "Not connected: ". $e->getMessage();
 // }
-
 ?>
 <!DOCTYPE html>
 <html>

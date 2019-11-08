@@ -6,7 +6,7 @@ try {
         // Connect to Mysql server
         $dbh = new PDO($DB_DSN1, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE IF NOT EXISTS Camagru";
+        $sql = "CREATE DATABASE IF NOT EXISTS Tcamagru";
         $dbh->exec($sql);
         echo "Database created successfully<br>";
     } catch (PDOException $e) {
@@ -25,6 +25,7 @@ try {
           email VARCHAR(100) NOT NULL,
           passwd VARCHAR(255) NOT NULL,
           token VARCHAR(50) NOT NULL,
+          notif INT(1) NOT NULL,
           varified INT(1) NOT NULL
         )";
         $dbh->exec($sql);
