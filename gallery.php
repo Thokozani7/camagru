@@ -30,25 +30,36 @@ include "includes/dbh.inc.php";
         <?php echo $value['image']; ?>
         <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
+<!-- sending the like to the database-->
     <div align="right">
         <form action="includes/likes.php" method="POST">
-            <input type="submit" name="like_but" value="likes">
-            <input type="hidden" name="post_id" value="<?php echo $value['image_id']; ?>">
-            <input type="hidden" name="image" value="<?php echo $value['image']; ?>">
-            <input type="hidden" name="username" value="<?php echo  $_SESSION['email']; ?>">
+            <input type="submit"    name="like_but" value="likes">
+            <input type="hidden"    name="post_id"  value="<?php echo   $value['image_id']; ?>">
+            <input type="hidden"    name="image"    value="<?php echo   $value['image']; ?>">
+            <input type="hidden"    name="username" value="<?php echo   $_SESSION['email']; ?>">
         </form>
+        <?php
+        $img = $value['image'];
+            $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = $dbh->prepare("SELECT * FROM likes WHERE image= '$img' ;");
+            $query->execute();
+            echo $query->rowcount();
+            echo $query->rowcount();
+            echo $query->rowcount();
+        ?>
     </div>
 
-
+<!--... sending image_id to as well as comment to be saved on the database-->
     <div align="right">
     <form action="includes/gallery.inc.php?image_id=<?php echo $value['image_id'] ?>" method="POST"> 
-        <input type="submit" name="comBut" value="comment">
-        <textarea name="bio"  cols="100" rows="2"></textarea>
+        <input      type="submit" name="comBut" value="comment">
+        <textarea                 name="bio"  cols="100" rows="2"></textarea>
     </form>
     </div>
 
 
-
+<!-- selecting all rows concerning this image then echo results in comment section -->
 <?php echo $value['image_id']; ?>
     <?php try {
     $image_id = $value['image_id'];

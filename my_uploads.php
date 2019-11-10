@@ -48,6 +48,7 @@ session_start();
         <div align="right">
         <form method="POST">
         <input formaction="includes/delete.inc.php" type="submit" name="delete_post" value="delete">
+        <input type="hidden" name="image" value="<?php echo $value['image']; ?>">
         <?php
         if(isset($_POST['delete_post'])){
             echo hello;

@@ -247,7 +247,10 @@ img.login{
     width: 50%;
     border: 1px solid #9E9E9E;
     border-radius: 11px;
-    background-color: palegreen;
+	background-color: palegreen;
+	
+	height: 70px; /* Make this site really long */
+	overflow: scroll; /* Hide scrollbars */
 }
 
 .per_comm {

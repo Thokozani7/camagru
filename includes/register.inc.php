@@ -81,7 +81,7 @@ try {
         $varified = 0;
 
         $password = SHA1($password);
-        $sql = "INSERT INTO users (Username, email, varified, token, notif, passwd) VALUES ('$username', '$email', '$varified', '$token', '', '$password');";
+        $sql = "INSERT INTO users (Username, email, varified, token, notif, passwd) VALUES ('$username', '$email', '$varified', '$token', '1', '$password');";
         $dbh->exec($sql);
 
         $to = $email;
