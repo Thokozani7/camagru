@@ -13,6 +13,8 @@ if (isset($_POST['submit'] ))
      $email = $_POST["email"];
      $password = $_POST["password"];
 
+     echo $username;
+     echo $email;
     // if($username == NULL|| $email == NULL || $password == NULL)
     // return ;
     // if($username != NULL|| $email != NULL || $password != NULL)
@@ -79,7 +81,7 @@ try {
         $varified = 0;
 
         $password = SHA1($password);
-        $sql = "INSERT INTO users (Username, email, varified, token, passwd) VALUES ('$username', '$email', '$varified', '$token', '$password');";
+        $sql = "INSERT INTO users (Username, email, varified, token, notif, passwd) VALUES ('$username', '$email', '$varified', '$token', '', '$password');";
         $dbh->exec($sql);
 
         $to = $email;

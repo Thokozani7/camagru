@@ -44,19 +44,19 @@ try {
             echo "Not connected: ". $e->getMessage();
         }
 
-        try {
-            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM comments WHERE image_id='$image_id'";
-            $result = $dbh->query($sql);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
-            $commen = $result->fetchAll();
-            //print_r($commen);
-            foreach($commen as $key => $value) {
-                echo $value['Username'] . " --> " . $value['comment'] . "<br />";
-            }
-        } catch (PDOExeption $e) {
-            echo "Not connected: ". $e->getMessage();
-        }
+        // try {
+        //     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //     $sql = "SELECT * FROM comments WHERE image_id='$image_id'";
+        //     $result = $dbh->query($sql);
+        //     $result->setFetchMode(PDO::FETCH_ASSOC);
+        //     $commen = $result->fetchAll();
+        //     //print_r($commen);
+        //     foreach($commen as $key => $value) {
+        //         echo $value['Username'] . " --> " . $value['comment'] . "<br />";
+        //     }
+        // } catch (PDOExeption $e) {
+        //     echo "Not connected: ". $e->getMessage();
+        // }
     }
 
 

@@ -13,7 +13,7 @@ try {
     $result = $dbh->query($sql);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $arr = $result->fetchAll();
-    // print_r($arr);
+    print_r($arr);
     } catch (PDOException $e) {
         echo "Not connected: ". $e->getMessage();
     }

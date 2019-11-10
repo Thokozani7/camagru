@@ -1,5 +1,10 @@
 <?php
 include_once "includes/gallery.inc.php";
+include "includes/dbh.inc.php";
+
+// echo "<br>";
+// print_r($arr[0]['image_id']);
+
 
 ?>
 <!DOCTYPE html>
@@ -25,9 +30,13 @@ include_once "includes/gallery.inc.php";
         <?php echo $value['image']; ?>
         <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
-    <div align="right"> 
-    <input type="submit" value="likes">
-    <!-- <textarea name="bio"  cols="100" rows="5"></textarea> -->
+    <div align="right">
+        <form action="includes/likes.php" method="POST">
+            <input type="submit" name="like_but" value="likes">
+            <input type="hidden" name="post_id" value="<?php echo $value['image_id']; ?>">
+            <input type="hidden" name="image" value="<?php echo $value['image']; ?>">
+            <input type="hidden" name="username" value="<?php echo  $_SESSION['email']; ?>">
+        </form>
     </div>
 
 
@@ -37,19 +46,50 @@ include_once "includes/gallery.inc.php";
         <textarea name="bio"  cols="100" rows="2"></textarea>
     </form>
     </div>
+
+
+
+<?php echo $value['image_id']; ?>
+    <?php try {
+    $image_id = $value['image_id'];
+    $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM comments WHERE image_id='$image_id'";
+    $result = $dbh->query($sql);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    $commen = $result->fetchAll();
+    //print_r($commen);
+    // foreach($commen as $key => $value) {
+    //     echo $value['Username'] . " --> " . $value['comment'] . "<br />";
+    // }
+    } catch (PDOExeption $e) {
+        echo "Not connected: ". $e->getMessage();
+    } 
+    ?>
     
-    
+
+
+
     </div>
     <div class="displayComments">
         <div class="per_comm">
-            <div class="user">Thokozani</div>
+        <?php foreach($commen as $key => $value) { ?>
+            <div class="user"><?php  echo $value['Username'] ; ?></div>
             <hr style='width: 80px;'>
-            <div class="comm">fghjkl</div>
+            <div class="comm"><?php  echo $value['comment'] ; ?></div>
+        <?php } ?>
             <br>
         </div>
     </div>
 
     <?php endforeach; ?>
+
+    <div id="commentsconatina">
+    <div>
+
+    <script>
+
+    </script>
 
 </body>
 </html>

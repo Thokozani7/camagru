@@ -19,20 +19,21 @@
                     <h1  align="center">Sign-Up</h1>
             
             <div color = "red">
-                <?php if(count($_SESSION["errors"]) > 0): ?>
-                    <?php foreach($_SESSION["errors"] as $value): ?>
+            <?php $x = $_SESSION["errors"] ?>
+                <?php if(count($x) > 0): ?>
+                    <?php foreach($x as $value): ?>
                         <li> <?php echo $value; ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
             <?php unset($_SESSION['errors']); ?>
               <label>Name:</label>
-              <input type="text" name="username" value="<?php echo $_SESSION['username']; ?>" class="form-control"  placeholder="Your Name" required> 
+              <input type="text" name="username" value="" class="form-control"  placeholder="Your Name" required> 
             </div>
             <br>
             <div class="form-group">
                     <label>Email address:</label>
-                    <input type="email" name="email" value="<?php echo $_SESSION['email']; ?>" class="form-control"  placeholder="Enter email" required>
+                    <input type="email" name="email" value="" class="form-control"  placeholder="Enter email" required>
             </div>
             <br>
             <div class="form-group">

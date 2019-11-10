@@ -6,7 +6,7 @@ try {
         // Connect to Mysql server
         $dbh = new PDO($DB_DSN1, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE DATABASE IF NOT EXISTS Tcamagru";
+        $sql = "CREATE DATABASE IF NOT EXISTS camagru";
         $dbh->exec($sql);
         echo "Database created successfully<br>";
     } catch (PDOException $e) {
@@ -58,7 +58,7 @@ try {
         `like_id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
         `image_id` INT(11),
         `user` varchar(200),
-        `image` INT(11)
+        `image` varchar(200)
        )";
     $dbh->exec($sql);
         echo "Table like created successfully<br>";
