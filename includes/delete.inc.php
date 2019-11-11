@@ -7,7 +7,7 @@ if(isset($_POST['delete_post']))
     try {
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE ,PDO::ERRMODE_EXCEPTION);
-        $sql = $dbh->prepare("DELETE FROM images WHERE image='$mgpost' ; "); // i ended here... need to make sure this works
+        $sql = $dbh->prepare("DELETE FROM images WHERE image='$imgpost' ; "); // i ended here... need to make sure this works
         $sql->execute();
 
         print_r($_POST);

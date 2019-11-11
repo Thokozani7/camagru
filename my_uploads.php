@@ -28,7 +28,7 @@ session_start();
     </div>
     <br>
     <br>
-    <form class="tk_form" action="includes/my_uploads.inc.php" method="POST" enctype="multipart/form-data">
+    <form  action="includes/my_uploads.inc.php" method="POST" enctype="multipart/form-data"> <!-- class="tk_form" -->
     <!-- <textarea name="bio"  cols="30" rows="5"></textarea> -->
 
     <?php if(!empty($_GET['msg'])): ?>
@@ -40,7 +40,11 @@ session_start();
 
     <input type="file" name="pic_post">
     <input type="submit" name="pic_upload" value="post">
+    <br>
     </form>
+    <br>
+    <a href="cam.php" ><button >capture</button></a>
+    <br>
     <br>
         <?php foreach($arr as $value):?>
     <div  class="col-md-5">

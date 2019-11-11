@@ -57,6 +57,7 @@ try {
         // } catch (PDOExeption $e) {
         //     echo "Not connected: ". $e->getMessage();
         // }
+        header("Location: ../gallery.php");
     }
 
 

@@ -15,11 +15,13 @@
             //DELETE FROM `likes` WHERE `likes`.`id` = 1;
             $query = $dbh->prepare("DELETE FROM `likes` WHERE `likes`.`image_id`='$post_id'");
             $query->execute();
+            header("Location: ../gallery.php");
         }   else {
         
             $query = $dbh->prepare("INSERT INTO `likes` (`image_id`, `user`, `image`) VALUES ('$post_id', '$username', '$image')");
             $query->execute();
             echo "Post Liked";
+            header("Location: ../gallery.php");
         }
     
         // print_r($_POST);
