@@ -24,6 +24,7 @@ if(isset($_POST['log_submit']))
             echo $_SESSION['email'] = $email;
             echo $_SESSION['username'] = $arr['Username'];
             echo $_SESSION['token'] = $arr['token'];
+            echo $_SESSION['notif'] = $arr['notif'];
             // echo "<br>".$_SESSION['username']."<br>";
             echo "<br>";
             echo "You are now logged in.";

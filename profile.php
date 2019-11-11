@@ -14,7 +14,8 @@ session_start();
 </head>
 <body class="back_or">
 <a href="./index.php" >Home</a>
-    <form class="tk_form" action="includes/profile.inc.php" method="POST">
+<div class="tk_form">
+    <form  action="includes/profile.inc.php" method="POST">
     <div>
     <!-- <div style="background-color: blue; border-radius: 50%; width: 200px; height: 200px;"> -->
         <!-- <p>hello</p> -->
@@ -32,6 +33,28 @@ session_start();
  
  <br>
  <div> Update password: <br> ********** <input type="submit" name="pass" value="edit"></div>
-</div></form>
+
+ <br>
+ </form>
+ <div> Notification alert: <br> 
+ <form action="includes/notif_switch.php" method="POST">
+    <label class="switch">
+
+      <input type="checkbox" name="checkbox"
+        <?php
+            if ($_SESSION['notif'] == 1)
+            {
+                echo "checked";
+            }
+            else {
+                echo "unchecked";
+            }
+        ?>
+      >
+      <span class="slider round"></span>
+    </label>
+      <input type="submit" name="save" value="save">
+</form>
+</div>
 
 </body></html>

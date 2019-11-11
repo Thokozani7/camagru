@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-// checking if a email exists
+// checking if an email exists
                 $sql = "SELECT * FROM users WHERE email='$newmail' LIMIT 1";
                 $result = $dbh->query($sql);
                 $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -37,6 +37,13 @@ if(isset($_POST['submit']))
                  } else {
                         $sql = "UPDATE users SET varified=0, email='$newmail' WHERE email = '$email' ;";
                         $dbh->exec($sql);
+                        
+                        $sql1 = "UPDATE likes SET user= '$newmail' WHERE user = '$email' ;";
+                        $dbh->exec($sql1);
+
+                        $sql2 = "UPDATE images SET user= '$newmail' WHERE user = '$email' ;";
+                        $dbh->exec($sql2);
+
                         $to = $newmail;
                         $subject = "E-mail varification";
                         $message = "<a href='http://127.0.0.1:8081/camagru0/varified.php?token=$token'>Varify new account </a>";

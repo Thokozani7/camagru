@@ -13,7 +13,7 @@
         if($query->rowCount() >= 1) {
             echo "Liked Before";
             //DELETE FROM `likes` WHERE `likes`.`id` = 1;
-            $query = $dbh->prepare("DELETE FROM `likes` WHERE `likes`.`image_id`='$post_id'");
+            $query = $dbh->prepare("DELETE FROM `likes` WHERE `likes`.`image_id`='$post_id' AND user='$username' ; ");
             $query->execute();
             header("Location: ../gallery.php");
         }   else {

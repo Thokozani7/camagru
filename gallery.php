@@ -15,6 +15,7 @@ include "includes/dbh.inc.php";
     </head>
     <body>
     <div>
+    <a href="./index.php" >Home</a>
         <h2 align="center">Gallery</h2>
         <hr>
     </div>
@@ -33,7 +34,21 @@ include "includes/dbh.inc.php";
 <!-- sending the like to the database-->
     <div align="right">
         <form action="includes/likes.php" method="POST">
-            <input type="submit"    name="like_but" value="likes">
+            <input type="submit"    name="like_but" value="likes"
+            <?php
+            
+                $user = $_SESSION['email'];
+                $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+                $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $query = $dbh->prepare("SELECT * FROM likes WHERE image= '$img' AND user= '$user' ;");
+                $query->execute();
+                echo $query->rowcount();
+
+                if ($query->rowcount() >= 6) {
+                    echo 'style="background-color: skyblue;';
+                    }
+            ?>
+            >
             <input type="hidden"    name="post_id"  value="<?php echo   $value['image_id']; ?>">
             <input type="hidden"    name="image"    value="<?php echo   $value['image']; ?>">
             <input type="hidden"    name="username" value="<?php echo   $_SESSION['email']; ?>">
@@ -45,12 +60,10 @@ include "includes/dbh.inc.php";
             $query = $dbh->prepare("SELECT * FROM likes WHERE image= '$img' ;");
             $query->execute();
             echo $query->rowcount();
-            echo $query->rowcount();
-            echo $query->rowcount();
         ?>
     </div>
 
-<!--... sending image_id to as well as comment to be saved on the database-->
+<!--... sending image_id to db  as well as comment to be saved on the database-->
     <div align="right">
     <form action="includes/gallery.inc.php?image_id=<?php echo $value['image_id'] ?>" method="POST"> 
         <input      type="submit" name="comBut" value="comment">

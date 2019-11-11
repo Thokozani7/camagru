@@ -3,28 +3,17 @@
     <head>
         <title></title>
         <link rel="stylesheet" href="css/login.css">
-        <style type="text/css">
-            .cam_canvas {
-                margin: 0px auto;
-                width: 500px;
-                height: 375px;
-                border: 10px #333 solid;
-            }
-            
-            #canvas {
-                width: 500px;
-                height: 375px;
-                background-color: #666;
-            }
-        </style>
+        
     </head>
     <body bgcolor="skyblue">
         <div class="cam_canvas">
-                 <video autoplay="true" id="canvas">
+                 <video autoplay="true" id="vid">
                  </video>
+                 <a href="#" id="capture" class="booth-capture" >Take photo</a>
+                 <canvas id="canvas" width="500" height="375"></canvas>
         </div>
 
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
             var video = document.querySelector('video');
@@ -54,6 +43,36 @@
                context.drawImage(video, 0, 0, canvas.width,canvas.height);
                document.getElementById('image').value = canvas.toDataURL('image/png');
             }
+
+        </script> -->
+        <script type="text/javascript">
+        (function(){
+            var video = document.getElementById('vid');
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var vendorUrl = window.URL || window.webkitURL;
+
+            navigator.getMedia =    navigator.getUserMedia ||
+                                    navigator.webkitGetUserMedia ||
+                                    navigator.mozGetUserMedia ||
+                                    navigator.msGetUserMedia;
+            
+            navigator.getMedia({
+                video: true,
+                audio: false
+            }, function(stream){
+                // video.srcObject = mediaSource;
+                video.srcObject = stream;
+                video.play();
+            }, function(error){
+
+            });
+        document.getElementById('capture').addEventListener('click', function(){
+            context.drawImage(video, 0, 0, 500, 375);
+        });
+        })();
+
+
 
         </script>
     </body>

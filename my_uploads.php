@@ -23,6 +23,7 @@ session_start();
     </head>
     <body>
     <div>
+    <a href="./index.php" >Home</a>
         <h2 align="center">My_uploads</h2>
         <hr>
     </div>
@@ -64,16 +65,6 @@ session_start();
         <?php echo $value['image']; ?>
         <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
-    <div align="right"> 
-    <input type="submit" value="likes">
-    <!-- <textarea name="bio"  cols="100" rows="5"></textarea> -->
-    </div>
-
-
-    <div align="right"> 
-    <input type="submit" value="comment">
-    <textarea name="bio"  cols="100" rows="2"></textarea>
-    </div>
     
     </div>
     <br>

@@ -12,6 +12,7 @@ if(isset($_POST['delete_post']))
 
         print_r($_POST);
         echo "image deleted";
+        header ("Location: ../my_uploads.php");
     } catch (PDOExeption $e)
     {
         echo "Couldn't connect to database: ". $e->getMessage();
