@@ -17,12 +17,14 @@ include_once "includes/login.inc.php";
 <?php
 if (!isset($_SESSION['username'])) { ?>
 
-<li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
-      </li>
-<li class="nav-item">
+    
+
         <a class="nav-link" href="register.php">Register</a>
-      </li>
+  
+
+        <a href="gallery.php">Gallery</a>
+   
 <!-- <a href="login.php">Login</a> |
 <a href="register.php">Register</a> | -->
 

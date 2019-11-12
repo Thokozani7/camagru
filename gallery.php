@@ -15,7 +15,9 @@ include "includes/dbh.inc.php";
     </head>
     <body>
     <div>
-    <a href="./index.php" >Home</a>
+    <?php if(isset($_SESSION['email'])) { ?>
+        <a href="./index.php" >Home</a>
+<?php } ?>
         <h2 align="center">Gallery</h2>
         <hr>
     </div>
@@ -28,11 +30,19 @@ include "includes/dbh.inc.php";
         <?php foreach($arr as $value):?>
     <div  class="col-md-5">
         <!-- <img src="img/placeholder.jpeg" class="posted_pic"> -->
-        <?php echo $value['image']; ?>
+        <?php
+        $user = $value['user'];
+        $query =$dbh->prepare("SELECT * FROM users WHERE email= '$user' ;");
+        $query->execute();
+        $check = $query->fetch();
+        echo strtoupper($check['Username']);
+        ?>
+        <hr>
         <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
 <!-- sending the like to the database-->
     <div align="right">
+    <?php if(isset($_SESSION['email'])) { ?>
         <form action="includes/likes.php" method="POST">
             <input type="submit"    name="like_but" value="likes"
             <?php
@@ -49,6 +59,9 @@ include "includes/dbh.inc.php";
                     }
             ?>
             >
+    <?php }else { ?>
+        <a href="./login.php"> <button style="padding: 2px;">like</button> </a>
+    <?php } ?>
             <input type="hidden"    name="post_id"  value="<?php echo   $value['image_id']; ?>">
             <input type="hidden"    name="image"    value="<?php echo   $value['image']; ?>">
             <input type="hidden"    name="username" value="<?php echo   $_SESSION['email']; ?>">
@@ -65,10 +78,18 @@ include "includes/dbh.inc.php";
 
 <!--... sending image_id to db  as well as comment to be saved on the database-->
     <div align="right">
-    <form action="includes/gallery.inc.php?image_id=<?php echo $value['image_id'] ?>" method="POST"> 
-        <input      type="submit" name="comBut" value="comment">
-        <textarea                 name="bio"  cols="100" rows="2"></textarea>
-    </form>
+    
+        <?php if(isset($_SESSION['email'])) { ?>
+            <form action="includes/gallery.inc.php?image_id=<?php echo $value['image_id'] ?>" method="POST">
+                <input      type="submit" name="comBut" value="comment">
+                <textarea                 name="bio"  cols="100" rows="2"></textarea>
+            </form>
+        <?php }else { ?>
+            
+                <a href="./login.php"> <button style="padding: 2px;">comment</button> </a>
+                <textarea                 name="bio"  cols="100" rows="2"></textarea>
+            
+        <?php } ?>
     </div>
 
 
