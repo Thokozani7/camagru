@@ -1,7 +1,14 @@
 <?php
+
+ini_set(‘display_errors’, 1);
+ini_set(‘display_startup_errors’, 1);
+error_reporting(E_ALL);
+
 include_once "includes/gallery.inc.php";
 include "includes/dbh.inc.php";
 
+
+//print_r($arr);
 // echo "<br>";
 // print_r($arr[0]['image_id']);
 
@@ -25,7 +32,6 @@ include "includes/dbh.inc.php";
 
     <br>
     <br>
-
     <br>
         <?php foreach($arr as $value):?>
     <div  class="col-md-5">
@@ -111,9 +117,8 @@ include "includes/dbh.inc.php";
         echo "Not connected: ". $e->getMessage();
     } 
     ?>
+
     
-
-
 
     </div>
     <div class="displayComments">
@@ -128,6 +133,30 @@ include "includes/dbh.inc.php";
     </div>
 
     <?php endforeach; ?>
+
+    <?php
+
+    if(isset($_GET['page']))
+        echo $page =(int)$_GET['page'];
+    else
+        echo $page =1;
+    // if(isset($_GET['per-page']) && $_GET['per-page'] <= 50)
+    // {
+    //     echo $perPage = (int)$_GET['per-page'];
+    // }
+    // else
+    // echo  $perPage = 5;
+    header("Location: includes/gallery.inc.php?page=$page");
+    
+
+    ?>
+
+    <?php
+    
+    $query = $dbh->prepare("SELECT * FROM images WHERE image= '$img' ;");
+
+
+    ?>
 
     <div id="commentsconatina">
     <div>

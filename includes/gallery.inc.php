@@ -1,24 +1,36 @@
 <?php
+
+ini_set(‘display_errors’, 1);
+ini_set(‘display_startup_errors’, 1);
+error_reporting(E_ALL);
+
 include "dbh.inc.php";
 session_start();
 // $msg = "";
 // $css_class = "";
+$page = $_GET['page'];
+$perPage = ($page > 1) ? ($page * 2) : 2;
+$start = ($page > 1) ? ($page * 1) : 0;
+echo $start;
 
 try {
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $mail = $_SESSION['email'];
-    $sql = "SELECT * FROM images ";
+    $sql = "SELECT * FROM images 
+    LIMIT {$start}, {$perPage}";
     $result = $dbh->query($sql);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $arr = $result->fetchAll();
-    //  print_r($arr);
+    //print_r($arr);
+    //header("location: ../gallery.php");
+
     } catch (PDOException $e) {
         echo "Not connected: ". $e->getMessage();
     }
 
-    if(isset($_POST['comBut']))
+    /* if(isset($_POST['comBut']))
     {
         $comment =htmlspecialchars($_POST['bio'])."<br>";
         
@@ -64,23 +76,10 @@ try {
 
         } catch (PDOExeption $e) {
             echo "Not connected: ". $e->getMessage();
-        }
+        } */
 
-        // try {
-        //     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //     $sql = "SELECT * FROM comments WHERE image_id='$image_id'";
-        //     $result = $dbh->query($sql);
-        //     $result->setFetchMode(PDO::FETCH_ASSOC);
-        //     $commen = $result->fetchAll();
-        //     //print_r($commen);
-        //     foreach($commen as $key => $value) {
-        //         echo $value['Username'] . " --> " . $value['comment'] . "<br />";
-        //     }
-        // } catch (PDOExeption $e) {
-        //     echo "Not connected: ". $e->getMessage();
-        // }
-        header("Location: ../gallery.php");
-    }
+        // header("Location: ../gallery.php");
+    //}
 
 
 

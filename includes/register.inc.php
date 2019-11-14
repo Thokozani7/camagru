@@ -1,6 +1,7 @@
 <?php
 
 include_once "dbh.inc.php";
+include_once "account.php";
 // $_SESSION
 session_start();
 $errors = array();
@@ -28,34 +29,7 @@ if (isset($_POST['submit'] ))
 
     $_SESSION["username"] = $username;
     $_SESSION["email"] = $email;
-    // echo $username."\n";
-    // echo $email."\n";
-    // echo $password."\n";
-    // foreach ($errors as $value)
-    // {
-    //     echo $value."<br>";
-    // }
 
-
-// try{
-// $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-// $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// $password = SHA1($password);
-// $sql = "INSERT INTO users (Username, email, passwd) VALUES ('$username', '$email', '$password');";
-// $dbh->exec($sql);
-// echo "Added to database!!";
-// $_SESSION["message"] = "You are logged in";
-// $_SESSION["username"] = $username;
-// header("Location: ../login.html");
-// // $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-// // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// // $sql = "DELETE FROM users";
-// // $dbh->exec($sql);
-// $dbh->close();
-// }
-// catch (PDOException $e) {
-//     echo "Not connected: ". $e->getMessage();
-// }
 try {
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -72,13 +46,26 @@ try {
      if($user_count > 1)
      $errors["email"] = "E-mail is already in use.";
      
-    //  echo count($errors);
+     //password error handling
+     if (strlen($password) > 30 || strlen($password) < 5) {
+         array_push($errors, Constants::$passwordLength);
+        //  echo Constants::$passwordLength;
  
+     }
+
+     if (!preg_match("/[^A-Za-z0-9]/", $password)) {
+         array_push($errors, Constants::$passwordNotAlphanumeric);
+        //  echo Constants::$passwordNotAlphanumeric;
+        //  return;
+     }
+
     if(count($errors) === 0)
     {
         $token = bin2hex(random_bytes(50));
         $token = substr($token, 0, 20);
         $varified = 0;
+
+
 
         $password = SHA1($password);
         $sql = "INSERT INTO users (Username, email, varified, token, notif, passwd) VALUES ('$username', '$email', '$varified', '$token', '1', '$password');";
@@ -92,6 +79,8 @@ try {
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         
         mail($to,$subject,$message,$headers);
+
+        
         // echo var_dump(mail($to, $subject, $message, $headers));
         // echo $dbh->execute();
 
@@ -117,6 +106,7 @@ catch (PDOException $e) {
 
 
 $_SESSION["errors"] = $errors;
+
     header("Location: ../register.php");
 }
 

@@ -70,6 +70,21 @@
         document.getElementById('capture').addEventListener('click', function(){
             context.drawImage(video, 0, 0, 500, 375);
         });
+
+
+
+        var canvas = document.getElementById('canvas');
+        var dataURL = canvas.toDataURL("image/png");
+
+        // alert("hey");
+        // $.ajax({
+        // type: "POST",
+        // url:  Drupal.settings.basePath + "includes/save.php",
+        // data: { 
+        //    imgBase64: dataURL
+        // }
+        // })
+
         })();
 
 
