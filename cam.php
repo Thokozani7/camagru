@@ -11,7 +11,32 @@
                  </video>
                  <a href="#" id="capture" class="booth-capture" >Take photo</a>
                  <canvas id="canvas" width="500" height="375"></canvas>
+
+                 <form action="includes/save.php" method="POST">
+                    <input type="hidden" id="image" name="save_image" >
+                    <input type="submit" id = "save_btn" name="save_pic" value="SAVE">
+                 </form>
+
         </div>
+
+        <div id='stickers' class="StickersHolder">
+        <button id="frame" class="stickerContainer">
+            <img class="sticker" src="img/stickers/frame.png" />
+        </button>
+        <button id="poop" class="stickerContainer">
+            <img class="sticker" src="img/stickers/poop.jpg" />
+        </button>
+        <button id="sponge" class="stickerContainer">
+            <img class="sticker" src="img/stickers/sponge.jpeg" />
+        </button>
+        <button id="sumFull" class="stickerContainer">
+            <img class="sticker" src="img/stickers/sumFull.jpeg" />
+        </button>
+        <button id="sumsung" class="stickerContainer">
+            <img class="sticker" src="img/stickers/sumsung.jpeg" />
+        </button>
+        
+    </div>
 
         <!-- <script type="text/javascript">
             var canvas = document.getElementById('canvas');
@@ -41,7 +66,7 @@
                canvas.height = video.offsetHeight;
                canvas.width = video.offsetWidth;
                context.drawImage(video, 0, 0, canvas.width,canvas.height);
-               document.getElementById('image').value = canvas.toDataURL('image/png');
+               document.getElementById('image').value = canvas.toDataURL('image/jpeg');
             }
 
         </script> -->
@@ -67,15 +92,20 @@
             }, function(error){
 
             });
-        document.getElementById('capture').addEventListener('click', function(){
-            context.drawImage(video, 0, 0, 500, 375);
-        });
 
-
+        document.getElementById('capture').addEventListener('click', captureImage);
 
         var canvas = document.getElementById('canvas');
-        var dataURL = canvas.toDataURL("image/png");
 
+        function captureImage() {
+//    canvas.height = video.offsetHeight;
+//    canvas.width = video.offsetWidth;
+   context.drawImage(video, 0, 0, 500,375);
+   document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+}
+
+
+// NEED TO FIX MY AJAX >>> <<<
         // alert("hey");
         // $.ajax({
         // type: "POST",

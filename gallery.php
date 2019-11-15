@@ -4,14 +4,13 @@ ini_set(‘display_errors’, 1);
 ini_set(‘display_startup_errors’, 1);
 error_reporting(E_ALL);
 
-include_once "includes/gallery.inc.php";
 include "includes/dbh.inc.php";
+include "includes/gallery.inc.php";
 
 
-//print_r($arr);
+// print_r($arr);
 // echo "<br>";
 // print_r($arr[0]['image_id']);
-
 
 ?>
 <!DOCTYPE html>
@@ -28,23 +27,22 @@ include "includes/dbh.inc.php";
         <h2 align="center">Gallery</h2>
         <hr>
     </div>
-    
 
     <br>
     <br>
     <br>
         <?php foreach($arr as $value):?>
-    <div  class="col-md-5">
-        <!-- <img src="img/placeholder.jpeg" class="posted_pic"> -->
-        <?php
-        $user = $value['user'];
-        $query =$dbh->prepare("SELECT * FROM users WHERE email= '$user' ;");
-        $query->execute();
-        $check = $query->fetch();
-        echo strtoupper($check['Username']);
-        ?>
-        <hr>
-        <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
+            <div  class="col-md-5">
+                <!-- <img src="img/placeholder.jpeg" class="posted_pic"> -->
+                <?php
+                    $user = $value['user'];
+                    $query =$dbh->prepare("SELECT * FROM users WHERE email= '$user' ;");
+                    $query->execute();
+                    $check = $query->fetch();
+                    echo strtoupper($check['Username']);
+                ?>
+            <hr>
+            <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
 <!-- sending the like to the database-->
     <div align="right">
@@ -136,17 +134,23 @@ include "includes/dbh.inc.php";
 
     <?php
 
-    if(isset($_GET['page']))
-        echo $page =(int)$_GET['page'];
-    else
-        echo $page =1;
+    // if(isset($_GET['page']))
+    //     echo $page =(int)$_GET['page'];
+    // else
+    //     echo $page =1;
+
+    for($x = 1; $x <= $pages; $x++){?>
+        <a href="?page=<?php echo $x; ?>" <?php if($pages === $x){ echo 'class="selected"'; } ?> ><?php echo $x; ?></a>
+    <?php
+    }
+
     // if(isset($_GET['per-page']) && $_GET['per-page'] <= 50)
     // {
     //     echo $perPage = (int)$_GET['per-page'];
     // }
     // else
     // echo  $perPage = 5;
-    header("Location: includes/gallery.inc.php?page=$page");
+    // header("Location: includes/gallery.inc.php?page=$page");
     
 
     ?>

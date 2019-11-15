@@ -9,8 +9,9 @@ session_start();
 // $msg = "";
 // $css_class = "";
 $page = $_GET['page'];
-$perPage = ($page > 1) ? ($page * 2) : 2;
-$start = ($page > 1) ? ($page * 1) : 0;
+// $perPage = ($page > 1) ? (($page * 2) - 1) : 2;
+$perPage = 2;
+$start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 echo $start;
 
 try {
@@ -18,19 +19,26 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $mail = $_SESSION['email'];
-    $sql = "SELECT * FROM images 
-    LIMIT {$start}, {$perPage}";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM images 
+    LIMIT {$perPage} OFFSET {$start} ";
     $result = $dbh->query($sql);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $arr = $result->fetchAll();
-    //print_r($arr);
-    //header("location: ../gallery.php");
+    $tot = $dbh->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+
+    echo $pages = ceil($tot / $perPage);
+    // var_dump($tot->fetch());
+    // print_r($arr);
+    // header("location: gallery.php");
 
     } catch (PDOException $e) {
         echo "Not connected: ". $e->getMessage();
     }
 
-    /* if(isset($_POST['comBut']))
+
+
+    //works when comment button is clicked
+     if(isset($_POST['comBut']))
     {
         $comment =htmlspecialchars($_POST['bio'])."<br>";
         
@@ -76,10 +84,10 @@ try {
 
         } catch (PDOExeption $e) {
             echo "Not connected: ". $e->getMessage();
-        } */
+        } 
 
         // header("Location: ../gallery.php");
-    //}
+    }
 
 
 
