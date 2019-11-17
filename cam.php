@@ -20,23 +20,28 @@
         </div>
 
         <div id='stickers' class="StickersHolder">
-        <button id="frame" class="stickerContainer">
-            <img class="sticker" src="img/stickers/frame.png" />
-        </button>
-        <button id="poop" class="stickerContainer">
-            <img class="sticker" src="img/stickers/poop.jpg" />
-        </button>
-        <button id="sponge" class="stickerContainer">
-            <img class="sticker" src="img/stickers/sponge.jpeg" />
-        </button>
-        <button id="sumFull" class="stickerContainer">
-            <img class="sticker" src="img/stickers/sumFull.jpeg" />
-        </button>
-        <button id="sumsung" class="stickerContainer">
-            <img class="sticker" src="img/stickers/sumsung.jpeg" />
-        </button>
-        
-    </div>
+            <button id="frame" class="stickerContainer">
+                <img id="frame1" class="sticker" src="img/stickers/frame.png" />
+            </button>
+            <button id="poop" class="stickerContainer">
+                <img id="poop1" class="sticker" src="img/stickers/poop.jpg" />
+            </button>
+            <button id="sponge" class="stickerContainer">
+                <img id="sponge1" class="sticker" src="img/stickers/sponge.jpeg" />
+            </button>
+            <button id="sumFull" class="stickerContainer">
+                <img id="sumFull1" class="sticker" src="img/stickers/sumFull.jpeg" />
+            </button>
+            <button id="sumsung" class="stickerContainer">
+                <img id="sumsung1" class="sticker" src="img/stickers/sumsung.jpeg" />
+            </button>
+            <button id="art" class="stickerContainer">
+                <img id="art1" class="sticker" src="img/stickers/art.png" />
+            </button>
+            <button id="glitter" class="stickerContainer">
+                <img id="glitter1" class="sticker" src="img/stickers/glitter.jpg" />
+            </button>
+        </div>
 
         <!-- <script type="text/javascript">
             var canvas = document.getElementById('canvas');
@@ -72,7 +77,7 @@
         </script> -->
         <script type="text/javascript">
         (function(){
-            var video = document.getElementById('vid');
+            var vid = document.getElementById('vid');
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
             var vendorUrl = window.URL || window.webkitURL;
@@ -87,24 +92,54 @@
                 audio: false
             }, function(stream){
                 // video.srcObject = mediaSource;
-                video.srcObject = stream;
-                video.play();
+                vid.srcObject = stream;
+                vid.play();
             }, function(error){
 
             });
 
         document.getElementById('capture').addEventListener('click', captureImage);
 
+        document.getElementById('frame').addEventListener('click', function() {
+             context.drawImage(document.getElementById('frame1'), 0, 0, 70,80);
+             document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+             });
+        document.getElementById('poop').addEventListener('click', function() {
+            context.drawImage(document.getElementById('poop1'), 0, 0, 70,80);
+            document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+            });
+        document.getElementById('sponge').addEventListener('click',function() {
+            context.drawImage(document.getElementById('sponge1'), 0, 0, 70,80);
+            document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+            });
+        document.getElementById('sumFull').addEventListener('click', function() {
+            context.drawImage(document.getElementById('sumFull1'), 0, 0, 70,80);
+            document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+            });
+        document.getElementById('sumsung').addEventListener('click', function() {
+            context.drawImage(document.getElementById('sumsung1'), 0, 0, 70,80);
+            document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+            });
+        document.getElementById('art').addEventListener('click', function() {
+            context.drawImage(document.getElementById('art1'), 0, 0, 70,80);
+            document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+            });
+        document.getElementById('glitter').addEventListener('click', function() {
+            context.drawImage(document.getElementById('glitter1'), 0, 0, 70,80);
+            document.getElementById('image').value = canvas.toDataURL('image/jpeg');
+            });
+        
+
         var canvas = document.getElementById('canvas');
 
         function captureImage() {
 //    canvas.height = video.offsetHeight;
 //    canvas.width = video.offsetWidth;
-   context.drawImage(video, 0, 0, 500,375);
+   context.drawImage(vid, 0, 0, 500,375);
    document.getElementById('image').value = canvas.toDataURL('image/jpeg');
 }
 
-
+        
 // NEED TO FIX MY AJAX >>> <<<
         // alert("hey");
         // $.ajax({
