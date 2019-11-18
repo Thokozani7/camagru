@@ -1,9 +1,9 @@
 <?php
 
-include "dbh.inc.php";
+include "../config/database.php";
 session_start();
 
-    var_dump($_POST);
+    // var_dump($_POST);
     $img = $_POST["save_image"];
     // $img = str_replace('data:image/png;base64,', '', $img);
     $img = str_replace('data:image/jpeg;base64,', '', $img);
@@ -19,10 +19,10 @@ session_start();
     $fileName1 = str_replace('../uploads/', '', $fileName);
     $sql = "INSERT INTO images (image, user, text) VALUES ('$fileName1', '$email', '$token');";
     $dbh->exec($sql);
+    header ("Location: ../my_uploads.php");
     } catch (PDOExeption $e) {
         echo "Not connected: ". $e->getMessage;
     }
-
     // $target = "../uploads/". $fileName;
     // move_uploaded_file($fileName, $target);
 ?>

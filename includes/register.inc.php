@@ -1,6 +1,6 @@
 <?php
 
-include_once "dbh.inc.php";
+include_once "../config/database.php";
 include_once "account.php";
 // $_SESSION
 session_start();

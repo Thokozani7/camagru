@@ -1,5 +1,5 @@
 <?php 
- require_once "includes/dbh.inc.php";
+ require_once "includes/database.php";
 
 try {
     $token = $_GET['token'];

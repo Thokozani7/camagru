@@ -4,7 +4,7 @@ ini_set(‘display_errors’, 1);
 ini_set(‘display_startup_errors’, 1);
 error_reporting(E_ALL);
 
-include "includes/dbh.inc.php";
+include "config/database.php";
 include "includes/gallery.inc.php";
 
 
@@ -98,7 +98,7 @@ include "includes/gallery.inc.php";
 
 
 <!-- selecting all rows concerning this image then echo results in comment section -->
-<?php echo $value['image_id']; ?>
+</br>
     <?php try {
     $image_id = $value['image_id'];
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

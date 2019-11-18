@@ -1,6 +1,6 @@
 <?php
 include "includes/my_uploads.inc.php";
-include "includes/dbh.inc.php";
+include "config/database.php";
 session_start();
 // try {
 // $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

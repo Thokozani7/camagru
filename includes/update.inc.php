@@ -2,7 +2,7 @@
 
 <?php
 
-include_once "dbh.inc.php";
+include_once "../config/database.php";
 session_start();
 
 $email = $_SESSION['email'];

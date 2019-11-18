@@ -1,5 +1,5 @@
 <?php
-include "dbh.inc.php";
+include "../config/database.php";
 session_start();
 
 if ($_POST['save'])

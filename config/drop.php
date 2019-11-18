@@ -1,5 +1,5 @@
 <?php 
-require_once '../includes/dbh.inc.php';
+require_once '../includes/database.php';
 
 try {
 $dbh = new PDO($DB_DSN1, $DB_USER, $DB_PASSWORD);

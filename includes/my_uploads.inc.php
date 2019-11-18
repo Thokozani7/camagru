@@ -1,5 +1,5 @@
 <?php
-include "dbh.inc.php";
+include "config/database.php";
 session_start();
 $msg = "";
 $css_class = "";
@@ -13,7 +13,7 @@ try {
     $result = $dbh->query($sql);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $arr = $result->fetchAll();
-    print_r($arr);
+    // print_r($arr);
     } catch (PDOException $e) {
         echo "Not connected: ". $e->getMessage();
     }
@@ -29,7 +29,9 @@ if (isset($_POST['pic_upload']))
     // echo "<pre>",print_r($_FILES['pic_post']['tmp_name']),"</pre>";
     // echo $target;
     // var_dump(move_uploaded_file($_FILES['pic_post']['tmp_name'], $target));
-    if (move_uploaded_file($_FILES['pic_post']['tmp_name'], $target))
+
+   
+    if (move_uploaded_file($_FILES['pic_post']['tmp_name'], $target) && getimagesize($_FILES['pic_post']['tmp_name']))
     {
         $msg = "image uploaded";
         $css_class = "alert-success";

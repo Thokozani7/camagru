@@ -4,7 +4,7 @@
         $post_id  = $_POST['post_id'];
         $username = $_POST['username'];
         echo $image = $_POST['image'];
-        require_once("dbh.inc.php");
+        require_once("../config/database.php");
         //echo $post_id . " <br>" . $username;
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

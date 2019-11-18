@@ -8,9 +8,8 @@
    $DB_PASSWORD = "123456789";
 
    try {
-
-      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-                $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    } catch (PDOException $e) {
       echo "Not connected: ". $e->getMessage;
    }

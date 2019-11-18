@@ -1,5 +1,5 @@
 <?php
-include "dbh.inc.php";
+include "../config/database.php";
 
 if(isset($_POST['delete_post']))
 {

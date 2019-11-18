@@ -9,7 +9,12 @@ h1 {
 .back_or {
     background-color: #f58529;
 }
-
+body {
+	background-image: url("../img/images.jpeg");
+	
+  	
+  	
+}
 .tk_form {
     width: 550px;
     height: auto;
