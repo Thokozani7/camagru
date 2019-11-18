@@ -14,6 +14,7 @@ session_start();
 // } catch (PDOException $e) {
 //     echo "Not connected: ". $e->getMessage();
 // }
+if(isset($_SESSION['email'])) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@ session_start();
     </head>
     <body>
     <div>
-    <a href="./index.php" >Home</a>
+        <a href="./index.php" >Home</a>
         <h2 align="center">My_uploads</h2>
         <hr>
     </div>
@@ -70,6 +71,6 @@ session_start();
     <br>
     <?php endforeach; ?>
 
-    
 </body>
 </html>
+<?php } ?>

@@ -1,4 +1,4 @@
-<?php require "includes/reset_password.inc.php"; 
+<?php require "includes/reset_password.inc.php";
 $_SESSION["key"] = $_GET['key'];
 ?>
 

@@ -89,7 +89,7 @@ try {
             echo "Not connected: ". $e->getMessage();
         } 
 
-        // header("Location: ../gallery.php");
+        header("Location: ../gallery.php");
     }
 
 

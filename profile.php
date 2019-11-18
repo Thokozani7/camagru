@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+ if(isset($_SESSION['email'])) {
 ?>
 
 <!DOCTYPE html>
@@ -58,3 +58,5 @@ session_start();
 </div>
 
 </body></html>
+
+<?php } ?>

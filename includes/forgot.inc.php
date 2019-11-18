@@ -7,9 +7,8 @@ if(isset($_POST['validate']))
     try{
         // $_SESSION['email_used_for_updating'] = $_POST['email'];
         $email = $_POST['email'];
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM users WHERE email = '$email' ;";
+
+        $sql = $dbh->prepare("SELECT * FROM users WHERE email = '$email' ;");
         $results = $dbh->query($sql);
         $results->setFetchMode(PDO::FETCH_ASSOC);
         $arr = $results->fetch();

@@ -12,6 +12,19 @@
         <link rel="stylesheet" href="css/login.css">
     </head>
     <body class="back_or">
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+                <?php
+                    if (!isset($_SESSION['username'])) { ?>
+
+                        <a class="nav-link" href="login.php">Login</a>
+
+
+                        <a class="nav-link" href="register.php">Register</a>
+
+
+                        <a href="gallery.php">Gallery</a>
+                <?php } ?>
+        </div>
         <hr>
         <form class="tk_form" action="includes/register.inc.php" method="POST">
             <img class="login" src="img/sign-up.png" >

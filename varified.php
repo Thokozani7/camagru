@@ -1,5 +1,9 @@
 <?php 
- require_once "includes/database.php";
+ require_once "config/database.php";
+ ini_set(‘display_errors’, 1);
+ ini_set(‘display_startup_errors’, 1);
+ error_reporting(E_ALL);
+ 
 
 try {
     $token = $_GET['token'];

@@ -19,7 +19,7 @@ body {
     width: 550px;
     height: auto;
     padding: 50px 100px;
-    background-color: white;
+    background-color: rgba(250, 250, 250, 0.92);
     border-radius: 10px;
     box-shadow: 0 0 10px 0 #000;
     margin: auto;
@@ -226,7 +226,7 @@ img.login{
     flex: 0 0 41.666667%;
 	max-width: 50%;
     border: solid black 1px;
-    background-color: powderblue;
+	background-color: rgba(217, 176, 230, 0.5803921568627451);
 }
 
 .posted_pic {
@@ -252,7 +252,7 @@ img.login{
     width: 50%;
     border: 1px solid #9E9E9E;
     border-radius: 11px;
-	background-color: palegreen;
+	background-color: #ec98fb;
 	
 	height: 70px; /* Make this site really long */
 	overflow: scroll; /* Hide scrollbars */
@@ -370,4 +370,8 @@ button.stickerContainer {
     margin: 5px;
     box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.04);
     outline: none;
+}
+
+textarea {
+    width: 50%;
 }

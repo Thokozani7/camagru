@@ -40,6 +40,6 @@ echo $_SESSION['username']; ?>
 <?php }?>
 
 </div>
-<?php include("footer.html")?>
+
     </body>
 </html>
