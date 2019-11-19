@@ -13,7 +13,14 @@ session_start();
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body class="back_or">
-<a href="./index.php" >Home</a>
+        <div class="navbar navbar-expand-lg navbar-light bg-light">       
+                <a href="./index.php" >Home</a> |     
+                <a href="gallery.php">Gallery</a> |
+                <a href="my_uploads.php">My uploads</a> |
+                <a href="profile.php">Profile</a> |
+                <a href="includes/logout.inc.php">Logout</a> |
+        
+        </div>
 <div class="tk_form">
     <form  action="includes/profile.inc.php" method="POST">
     <div>

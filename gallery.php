@@ -190,6 +190,8 @@ include "includes/gallery.inc.php";
     ?>
 
     <div id="commentsconatina">
-    <div>
+    </div>
+    <footer>&copythokozani 2k19</footer>
+
         </body>
 </html>

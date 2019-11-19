@@ -24,7 +24,15 @@ if(isset($_SESSION['email'])) {
     </head>
     <body>
     <div>
-        <a href="./index.php" >Home</a>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+                
+                <a href="./index.php" >Home</a> |     
+                <a href="gallery.php">Gallery</a> |
+                <a href="my_uploads.php">My uploads</a> |
+                <a href="profile.php">Profile</a> |
+                <a href="includes/logout.inc.php">Logout</a> |
+        
+        </div>
         <h2 align="center">My_uploads</h2>
         <hr>
     </div>

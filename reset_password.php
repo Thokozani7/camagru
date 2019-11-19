@@ -17,7 +17,7 @@ $_SESSION["key"] = $_GET['key'];
             <br>
             <div class="form-group">
                 <label >New Password:</label>
-                <input type="password" name="password" value="" class="form-control" placeholder="Password" required>
+                <input type="password" minlength="6" pattern="(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])\S*" title="password must contain at least 1 uppercase, lowercase, digit, special character, min of 6 characters" name="password" value="" class="form-control" placeholder="Password" required>
             </div>
             <br>
             <input type="submit" name="submit" value="submit" class="btn btn-primary">

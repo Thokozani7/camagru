@@ -6,6 +6,11 @@ h1 {
     color: black;
     font-size: 100px;
 }
+
+h2 {
+	font-size: 42px;
+	color: black;
+}
 .back_or {
     background-color: #f58529;
 }
@@ -226,7 +231,7 @@ img.login{
     flex: 0 0 41.666667%;
 	max-width: 50%;
     border: solid black 1px;
-	background-color: rgba(217, 176, 230, 0.5803921568627451);
+	background-color: rgb(217, 176, 230);
 }
 
 .posted_pic {
@@ -375,3 +380,13 @@ button.stickerContainer {
 textarea {
     width: 50%;
 }
+
+footer {
+	position: static;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(198, 138, 224, 0.83);
+	color: black;
+	text-align: center;
+ }

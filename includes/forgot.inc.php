@@ -9,9 +9,9 @@ if(isset($_POST['validate']))
         $email = $_POST['email'];
 
         $sql = $dbh->prepare("SELECT * FROM users WHERE email = '$email' ;");
-        $results = $dbh->query($sql);
-        $results->setFetchMode(PDO::FETCH_ASSOC);
-        $arr = $results->fetch();
+        $sql->execute();
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+        $arr = $sql->fetch();
         // echo $email."<br>";
         print_r($arr);
         $token = $arr['token'];
