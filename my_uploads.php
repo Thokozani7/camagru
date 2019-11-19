@@ -78,6 +78,7 @@ if(isset($_SESSION['email'])) {
     </div>
     <br>
     <?php endforeach; ?>
+    <footer>&copythokozani 2k19</footer>
 
 </body>
 </html>
