@@ -12,14 +12,13 @@ h2 {
 	color: black;
 }
 .back_or {
-    background-color: #f58529;
+    background-color: #e4e1de;
 }
 body {
-	background-image: url("../img/images.jpeg");
-	
-  	
-  	
+	/* background-image: url("../img/images.jpeg"); */
+	background-color: #e4e1de;
 }
+
 .tk_form {
     width: 550px;
     height: auto;
@@ -229,9 +228,19 @@ img.login{
 .col-md-5 {
     -ms-flex: 0 0 41.666667%;
     flex: 0 0 41.666667%;
-	max-width: 50%;
-    border: solid black 1px;
-	background-color: rgb(217, 176, 230);
+	/* border: solid black 1px; */
+	box-shadow: 0 4px 8px 0 rgb(249, 184, 135), 0 6px 20px 0 rgba(0, 0, 0, 0.69);
+	border-radius: 11px;
+	background-color: rgb(249, 184, 135);
+}
+
+.usernm {
+    padding: 6px;
+}
+
+.post_card {
+    width: 51%;
+    margin: 0 auto;
 }
 
 .posted_pic {
@@ -254,10 +263,10 @@ img.login{
 }
 
 .displayComments {
-    width: 50%;
+	width: 100%;
     border: 1px solid #9E9E9E;
     border-radius: 11px;
-	background-color: #ec98fb;
+	background-color: #f8f9fa;
 	
 	height: 70px; /* Make this site really long */
 	overflow: scroll; /* Hide scrollbars */
@@ -364,7 +373,7 @@ img.login{
     justify-content: space-evenly;
     align-items: center;
     background-color: #fff;
-    margin-top: 35%;
+    margin-top: 85vh;
 }
 button.stickerContainer {
     border: none;
@@ -382,11 +391,11 @@ textarea {
 }
 
 footer {
-	position: static;
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background-color: rgba(198, 138, 224, 0.83);
+	background-color: rgb(249, 184, 135);
 	color: black;
 	text-align: center;
  }

@@ -17,26 +17,11 @@ include_once "includes/login.inc.php";
 <?php
 if (!isset($_SESSION['username'])) { ?>
 
-        <a class="nav-link" href="login.php">Login</a>
-    
-
-        <a class="nav-link" href="register.php">Register</a>
-  
-
-        <a href="gallery.php">Gallery</a>
-   
-<!-- <a href="login.php">Login</a> |
-<a href="register.php">Register</a> | -->
+<?php header ("Location: gallery.php") ?>
 
 <?php } else if (isset($_SESSION['username'])) {?>
 
-Welcome back
-<?php
-echo $_SESSION['username']; ?>
-<a href="gallery.php">Gallery</a> |
-<a href="my_uploads.php">My uploads</a> |
-<a href="profile.php">Profile</a> |
-<a href="includes/logout.inc.php">Logout</a> |
+<?php header ("Location: gallery.php") ?>
 <?php }?>
 
 </div>

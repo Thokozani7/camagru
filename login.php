@@ -21,7 +21,7 @@
                         <a href="gallery.php">Gallery</a>
                 <?php } ?>
         </div>
-        <hr>
+        
         <form class="tk_form" action="includes/login.inc.php" method="POST">
             <img class="login" src="img/login.png" >
 

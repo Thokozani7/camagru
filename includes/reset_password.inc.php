@@ -11,7 +11,7 @@ if (isset($_POST['submit'] ))
 {
         $password = $_POST["password"];
   
-        echo $token = $_SESSION['key'];
+        $token = $_SESSION['key'];
         unset($_SESSION['key']);
     try {
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -39,7 +39,7 @@ if (isset($_POST['submit'] ))
 
             //header("Location: ../login.php");
             echo $link;
-            echo '<br><a href="../login.php"><input type="submit" name="submit" value="submit" class="btn btn-primary"></a>';
+            echo '<br><a href="../login.php"><input type="submit" name="submit" value="sign-in" class="btn btn-primary"></a>';
             if($dbh->execute()) {
                 echo "hello";
                 $link = "Please verify your E-mail";

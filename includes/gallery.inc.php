@@ -19,8 +19,8 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $mail = $_SESSION['email'];
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM images 
-    LIMIT {$perPage} OFFSET {$start} ";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM images ORDER BY image_id DESC 
+    LIMIT {$perPage} OFFSET {$start}";
     $result = $dbh->query($sql);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $arr = $result->fetchAll();
@@ -43,7 +43,7 @@ try {
         $comment =htmlspecialchars($_POST['bio']);
         
         
-        $sql = "SELECT * FROM users WHERE email='$mail'";
+        $sql = "SELECT * FROM users WHERE email='$mail' ";
         $result = $dbh->query($sql);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $arra = $result->fetch();

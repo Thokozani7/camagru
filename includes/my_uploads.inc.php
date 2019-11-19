@@ -1,15 +1,31 @@
 <?php
-include "config/database.php";
+
+
+$DB_NAME = "tcamagru";
+$DB_DSN = "mysql:host=localhost;dbname=".$DB_NAME;
+$DB_DSN1 = "mysql:host=localhost";
+$DB_USER = "root";
+$DB_PASSWORD = "123456789";
+
+try {
+      $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+   echo "Not connected: ". $e->getMessage();
+}
+
+
 session_start();
 $msg = "";
 $css_class = "";
 
 try {
-    $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $mail = $_SESSION['email'];
-    $sql = "SELECT * FROM images WHERE user='$mail'";
+
+    // $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM images WHERE user='$mail' ORDER BY image_id DESC ; ";
     $result = $dbh->query($sql);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $arr = $result->fetchAll();
@@ -30,9 +46,9 @@ if (isset($_POST['pic_upload']))
     // echo $target;
     // var_dump(move_uploaded_file($_FILES['pic_post']['tmp_name'], $target));
 
-   
-    if (move_uploaded_file($_FILES['pic_post']['tmp_name'], $target) && getimagesize($_FILES['pic_post']['tmp_name']))
+    if (getimagesize($_FILES['pic_post']['tmp_name']))
     {
+        move_uploaded_file($_FILES['pic_post']['tmp_name'], $target);
         $msg = "image uploaded";
         $css_class = "alert-success";
 
@@ -43,7 +59,7 @@ if (isset($_POST['pic_upload']))
         $sql = "INSERT INTO images (image, user, text) VALUES ('$profile_img_name', '$email', '$token');";
         $dbh->exec($sql);
         } catch (PDOExeption $e) {
-            echo "Not connected: ". $e->getMessage;
+            echo "Not connected: ". $e->getMessage();
         }
 
         header ("Location: ../my_uploads.php?msg=$msg&css_class=$css_class");

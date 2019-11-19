@@ -3,22 +3,23 @@ require_once 'database.php';
 
 // CREATE DATABASE
 try {
-        // Connect to Mysql server
-
-        $dbh = new PDO($DB_DSN1, $DB_USER, $DB_PASSWORD);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = $dbh->prepare("CREATE DATABASE IF NOT EXISTS tcamagru");
-        $sql->execute();
-        echo "Database created successfully<br>";
-    } catch (PDOException $e) {
-        echo "ERROR CREATING DB: \n".$e->getMessage();
-        exit(1);
-    }
+    // Connect to Mysql server
+    
+    $dbh = new PDO($DB_DSN1, $DB_USER, $DB_PASSWORD);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = $dbh->prepare("CREATE DATABASE IF NOT EXISTS tcamagru");
+    $sql->execute();
+    echo "Database created successfully<br>";
+} catch (PDOException $e) {
+    echo "ERROR CREATING DB: \n".$e->getMessage();
+    exit(1);
+}
 // CREATE TABLE USERS
 try {
         // Connect to DATABASE previously created
 
         //sql to create table
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $sql =$dbh->prepare("CREATE TABLE IF NOT EXISTS users (
           id INT(11)  AUTO_INCREMENT PRIMARY KEY NOT NULL,
           Username VARCHAR(50) NOT NULL,
@@ -41,7 +42,8 @@ try {
         `image_id` INT(11) AUTO_INCREMENT PRIMARY KEY, 
         `image`VARCHAR(200) NOT NULL,
         `user` VARCHAR(255) NOT NULL,
-	    `text` TEXT(30) NOT NULL
+	    `text` TEXT(30) NOT NULL,
+        `date_added` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
     )");
         $sql->execute();
         echo "Table gallery created successfully<br>";
@@ -105,7 +107,7 @@ if (!file_exists('../uploads')) {
 </head>
 <body>
 <div class="index_redir">
-    <button id="indexbtn" name="inbtn"><a href="../login.php">Index</a></button>
+    <button id="indexbtn" name="inbtn"><a href="../index.php">Index</a></button>
 </div>
 </body>
 </html>

@@ -15,12 +15,14 @@ if ($_POST['save'])
         $_SESSION['notif'] = 0;
 
         echo "it is off";
+        header ("Location: ../profile.php");
     } else if ($_POST['checkbox'] == on)
     {
         $query = $dbh->prepare("UPDATE `users` SET  `notif` = 1 WHERE `users`.`email` = '$email' ;");
         $query->execute();
         $_SESSION['notif'] = 1;
         echo "it is on";
+        header ("Location: ../profile.php");
     }
 }
 

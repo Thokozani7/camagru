@@ -10,12 +10,12 @@ $email = "";
 
 if (isset($_POST['submit'] ))
 {
-    $username = $_POST["username"];
-     $email = $_POST["email"];
-     $password = $_POST["password"];
+    $username = htmlspecialchars($_POST["username"]);
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-     echo $username;
-     echo $email;
+    //  echo $username;
+    //  echo $email;
     // if($username == NULL|| $email == NULL || $password == NULL)
     // return ;
     // if($username != NULL|| $email != NULL || $password != NULL)
@@ -27,8 +27,8 @@ if (isset($_POST['submit'] ))
     if (empty($password))
     $errors["password"] = "Password required";
 
-    $_SESSION["username"] = $username;
-    $_SESSION["email"] = $email;
+    // $_SESSION["username"] = $username;
+    // $_SESSION["email"] = $email;
 
 try {
     $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -65,7 +65,8 @@ try {
         $token = substr($token, 0, 20);
         $varified = 0;
 
-
+        include "../config/root.php";
+        $dir = DIR;
 
         $password = SHA1($password);
         $sql = "INSERT INTO users (Username, email, varified, token, notif, passwd) VALUES ('$username', '$email', '$varified', '$token', '1', '$password');";
@@ -73,7 +74,7 @@ try {
 
         $to = $email;
         $subject = "E-mail varification";
-        $message = "<a href='http://127.0.0.1:8081/camagru0/varified.php?token=$token'>Varify account </a>";
+        $message = "<a href='http://127.0.0.1:8081/$dir/varified.php?token=$token'>Varify account </a>";
         $headers = "From: camagru_CEO@mailseo.net \r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";

@@ -9,7 +9,7 @@ echo $res;
         <title>Forgot password</title>
         <!-- <link rel="stylesheet" href="css/login.css"> -->
     </head>
-    <body style="background-color: #f58529;">
+    <body style="background-color: #9a9a9a;">
         <form action="includes/forgot.inc.php" method="POST">
             <h2>Forgot password</h2>
             <hr>

@@ -25,7 +25,6 @@
                         <a href="gallery.php">Gallery</a>
                 <?php } ?>
         </div>
-        <hr>
         <form class="tk_form" action="includes/register.inc.php" method="POST">
             <img class="login" src="img/sign-up.png" >
             <div class="form-group">

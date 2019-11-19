@@ -39,9 +39,9 @@ include "includes/gallery.inc.php";
                 
                 <?php } else if (isset($_SESSION['username'])) {?>
                 
+
+                    Username: <?php echo $_SESSION['username']; ?>
                 <a href="./index.php" >Home</a> |
-                
-                
                 <a href="gallery.php">Gallery</a> |
                 <a href="my_uploads.php">My uploads</a> |
                 <a href="profile.php">Profile</a> |
@@ -52,15 +52,17 @@ include "includes/gallery.inc.php";
         
         
         <h2 align="center">Gallery</h2>
-        <hr>
+       
     </div>
 
     <br>
     <br>
     <br>
-        <?php foreach($arr as $value):?>
+    <div class="post_card">
+    <?php foreach($arr as $value):?>
             <div  class="col-md-5">
                 <!-- <img src="img/placeholder.jpeg" class="posted_pic"> -->
+                <div class="usernm">
                 <?php
                     $user = $value['user'];
                     $query =$dbh->prepare("SELECT * FROM users WHERE email= '$user' ;");
@@ -68,6 +70,7 @@ include "includes/gallery.inc.php";
                     $check = $query->fetch();
                     echo strtoupper($check['Username']);
                 ?>
+                </div>
             <hr>
             <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
@@ -157,7 +160,9 @@ include "includes/gallery.inc.php";
         </div>
     </div>
 
+
     <?php endforeach; ?>
+</div>
 
     <?php
 
@@ -191,6 +196,7 @@ include "includes/gallery.inc.php";
 
     <div id="commentsconatina">
     </div>
+    <br>
     <footer>&copythokozani 2k19</footer>
 
         </body>

@@ -44,9 +44,13 @@ if(isset($_POST['submit']))
                         $sql2 = "UPDATE images SET user= '$newmail' WHERE user = '$email' ;";
                         $dbh->exec($sql2);
 
+
+                        include "../config/root.php";
+                        $dir = DIR;
+
                         $to = $newmail;
                         $subject = "E-mail varification";
-                        $message = "<a href='http://127.0.0.1:8081/camagru0/varified.php?token=$token'>Varify new account </a>";
+                        $message = "<a href='http://127.0.0.1:8081/$dir/varified.php?token=$token'>Varify new account </a>";
                         $headers = "From: camagru_CEO@mailseo.net \r\n";
                         $headers .= "MIME-Version: 1.0" . "\r\n";
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";

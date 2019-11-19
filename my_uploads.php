@@ -56,6 +56,7 @@ if(isset($_SESSION['email'])) {
     <a href="cam.php" ><button >capture</button></a>
     <br>
     <br>
+    <div class="post_card">
         <?php foreach($arr as $value):?>
     <div  class="col-md-5">
         <!-- <img src="img/placeholder.jpeg" class="posted_pic"> -->
@@ -71,13 +72,14 @@ if(isset($_SESSION['email'])) {
         ?>
         </form>
         </div>
-        <?php echo $value['image']; ?>
+        <!-- echo $value['image'];  -->
         <img src="uploads/<?php echo $value['image']; ?>"  class="posted_pic">
 
     
     </div>
     <br>
     <?php endforeach; ?>
+    </div>
     <footer>&copythokozani 2k19</footer>
 
 </body>
